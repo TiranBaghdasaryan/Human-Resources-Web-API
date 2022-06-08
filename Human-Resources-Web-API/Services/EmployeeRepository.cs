@@ -52,12 +52,11 @@ namespace Human_Resources_Web_API.Services
             };
         }
 
-        public Response RemoveEmployeeHardByIdAsync(int id,Employee employee)
+        public Response RemoveEmployeeHardByIdAsync(int id, Employee employee)
         {
-
             _context.Employees.Remove(employee);
             _context.SaveChanges();
-            
+
             return new Response()
             {
                 Message = "Operation done successful",
@@ -98,7 +97,7 @@ namespace Human_Resources_Web_API.Services
             };
         }
 
-        public IEnumerable<EmployeeViewModel> GetAllEmployeesAsync() =>
+        public IEnumerable<EmployeeViewModel> GetAllEmployees() =>
             _context.Employees.Include(e => e.HumanResourceData).Select(e => new EmployeeViewModel()
                 .Update
                 (
@@ -112,5 +111,10 @@ namespace Human_Resources_Web_API.Services
                     e.HumanResourceData.SocialSecurityNumber,
                     e.HumanResourceData.Salary
                 ));
+
+        public IEnumerable<string> GetEmails()
+        {
+            return _context.Employees.Select(e => e.Email);
+        }
     }
 }

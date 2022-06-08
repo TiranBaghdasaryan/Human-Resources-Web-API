@@ -31,6 +31,7 @@ namespace Human_Resources_Web_API
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddTransient<IEmployeeRepository, EmployeeRepository>();
+            services.AddTransient<ISendMailService, SendMailService>();
 
             
             services.AddSwaggerGen(c =>

@@ -12,6 +12,8 @@ namespace Human_Resources_Web_API.Services
         public Response RemoveEmployeeHardByIdAsync(int id,Employee employee);
         public Task<Response> RemoveEmployeeSoftByIdAsync(int id);
         public Task<Response> UpdateEmployeeByIdAsync(int id,EmployeeRequest requestModel,Employee employee);
-        public IEnumerable<EmployeeViewModel> GetAllEmployeesAsync();
+        public IEnumerable<EmployeeViewModel> GetAllEmployees();
+        public IEnumerable<string> GetEmails();
+        
     }
 }

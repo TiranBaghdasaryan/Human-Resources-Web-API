@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Human_Resources_Web_API.Controllers
 {
-    [Microsoft.AspNetCore.Components.Route("api/[controller]")]
+    [Route("api/[controller]")]
     [ApiController]
     public class EmployeesController : ControllerBase
     {
@@ -49,7 +49,7 @@ namespace Human_Resources_Web_API.Controllers
         [HttpGet("get-employees")]
         public IActionResult GetEmployees()
         {
-            IEnumerable<EmployeeViewModel> employees = _employeeRepository.GetAllEmployeesAsync();
+            IEnumerable<EmployeeViewModel> employees = _employeeRepository.GetAllEmployees();
             return Ok(employees);
         }
 
@@ -58,8 +58,8 @@ namespace Human_Resources_Web_API.Controllers
         {
             Employee employee = _context.Employees.Include(e => e.HumanResourceData).FirstOrDefault(e => e.Id == id);
             if (employee == null) return BadRequest("Employee not exists");
-            
-            response =  _employeeRepository.RemoveEmployeeHardByIdAsync(id,employee);
+
+            response = _employeeRepository.RemoveEmployeeHardByIdAsync(id, employee);
             return Ok(response);
         }
     }

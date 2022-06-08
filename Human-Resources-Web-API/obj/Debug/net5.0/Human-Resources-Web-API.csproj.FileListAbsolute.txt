@@ -56,3 +56,5 @@ C:\Users\Acer\RiderProjects\Human-Resources-Web-API\Human-Resources-Web-API\obj\
 C:\Users\Acer\RiderProjects\Human-Resources-Web-API\Human-Resources-Web-API\obj\Debug\net5.0\ref\Human-Resources-Web-API.dll
 C:\Users\Acer\RiderProjects\Human-Resources-Web-API\Human-Resources-Web-API\obj\Debug\net5.0\Human-Resources-Web-API.pdb
 C:\Users\Acer\RiderProjects\Human-Resources-Web-API\Human-Resources-Web-API\obj\Debug\net5.0\Human-Resources-Web-API.genruntimeconfig.cache
+C:\Users\Acer\RiderProjects\Human-Resources-Web-API\Human-Resources-Web-API\bin\Debug\net5.0\SendGrid.dll
+C:\Users\Acer\RiderProjects\Human-Resources-Web-API\Human-Resources-Web-API\bin\Debug\net5.0\StarkbankEcdsa.dll
