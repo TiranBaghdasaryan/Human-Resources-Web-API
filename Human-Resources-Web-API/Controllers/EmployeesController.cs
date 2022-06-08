@@ -15,7 +15,7 @@ namespace Human_Resources_Web_API.Controllers
     [ApiController]
     public class EmployeesController : ControllerBase
     {
-        private Response response;
+        private Response response = null;
 
         public EmployeesController(IEmployeeRepository employeeRepository, ApplicationContext context)
         {
@@ -30,16 +30,14 @@ namespace Human_Resources_Web_API.Controllers
         [HttpPost("add-employee")]
         public async Task<IActionResult> AddEmployee([FromBody] EmployeeRequest employeeRequest)
         {
-            response = null;
             response = await _employeeRepository.AddEmployeeAsync(employeeRequest);
             return Ok(response);
         }
 
 
-        [HttpPut("{id:int}")]
+        [HttpPut("update-employee/{id:int}")]
         public async Task<IActionResult> UpdateEmployee(int id, [FromBody] EmployeeRequest employeeRequest)
         {
-            response = null;
             Employee employee = _context.Employees.Include(e => e.HumanResourceData).FirstOrDefault(e => e.Id == id);
             if (employee == null) return BadRequest("Employee not exists");
 
@@ -53,6 +51,16 @@ namespace Human_Resources_Web_API.Controllers
         {
             IEnumerable<EmployeeViewModel> employees = _employeeRepository.GetAllEmployeesAsync();
             return Ok(employees);
+        }
+
+        [HttpDelete("remove-employee-hard/{id:int}")]
+        public IActionResult RemoveEmployeeHard(int id)
+        {
+            Employee employee = _context.Employees.Include(e => e.HumanResourceData).FirstOrDefault(e => e.Id == id);
+            if (employee == null) return BadRequest("Employee not exists");
+            
+            response =  _employeeRepository.RemoveEmployeeHardByIdAsync(id,employee);
+            return Ok(response);
         }
     }
 }

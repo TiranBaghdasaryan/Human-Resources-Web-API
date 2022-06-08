@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.InteropServices.ComTypes;
 using System.Threading.Tasks;
 using Human_Resources_Web_API.Context;
 using Human_Resources_Web_API.Entities;
@@ -53,12 +52,20 @@ namespace Human_Resources_Web_API.Services
             };
         }
 
-        public Task<Response> RemoveEmployeeHardByIdAsync(int id)
+        public Response RemoveEmployeeHardByIdAsync(int id,Employee employee)
         {
-            throw new System.NotImplementedException();
+
+            _context.Employees.Remove(employee);
+            _context.SaveChanges();
+            
+            return new Response()
+            {
+                Message = "Operation done successful",
+                Code = 200
+            };
         }
 
-        public Task<Response> RemoveEmployeeToBackupByIdAsync(int id)
+        public Task<Response> RemoveEmployeeSoftByIdAsync(int id)
         {
             throw new System.NotImplementedException();
         }

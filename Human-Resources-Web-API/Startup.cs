@@ -1,4 +1,3 @@
-using System.Text.Json.Serialization;
 using Human_Resources_Web_API.Context;
 using Human_Resources_Web_API.Services;
 using Microsoft.AspNetCore.Builder;
