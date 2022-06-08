@@ -1,6 +1,8 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using Human_Resources_Web_API.Entities;
 using Human_Resources_Web_API.Models;
+using Human_Resources_Web_API.Models.ViewModels;
 
 namespace Human_Resources_Web_API.Services
 {
@@ -10,6 +12,6 @@ namespace Human_Resources_Web_API.Services
         public Task<Response> RemoveEmployeeHardByIdAsync(int id);
         public Task<Response> RemoveEmployeeToBackupByIdAsync(int id);
         public Task<Response> UpdateEmployeeByIdAsync(int id,EmployeeRequest requestModel,Employee employee);
-        public Task<Response> GetAllEmployeesAsync();
+        public IEnumerable<EmployeeViewModel> GetAllEmployeesAsync();
     }
 }

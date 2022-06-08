@@ -1,8 +1,12 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
+using System.Runtime.InteropServices.ComTypes;
 using System.Threading.Tasks;
 using Human_Resources_Web_API.Context;
 using Human_Resources_Web_API.Entities;
 using Human_Resources_Web_API.Models;
+using Human_Resources_Web_API.Models.ViewModels;
+using Microsoft.EntityFrameworkCore;
 
 
 namespace Human_Resources_Web_API.Services
@@ -71,7 +75,6 @@ namespace Human_Resources_Web_API.Services
                 requestModel.Email
             );
 
-
             employee.UpdateHumanResourceData
             (
                 requestModel.PayrollInformation,
@@ -88,9 +91,19 @@ namespace Human_Resources_Web_API.Services
             };
         }
 
-        public Task<Response> GetAllEmployeesAsync()
-        {
-            throw new System.NotImplementedException();
-        }
+        public IEnumerable<EmployeeViewModel> GetAllEmployeesAsync() =>
+            _context.Employees.Include(e => e.HumanResourceData).Select(e => new EmployeeViewModel()
+                .Update
+                (
+                    e.FirstName,
+                    e.LastName,
+                    e.BirthDate,
+                    e.Gender,
+                    e.ContactNumber,
+                    e.Email,
+                    e.HumanResourceData.PayrollInformation,
+                    e.HumanResourceData.SocialSecurityNumber,
+                    e.HumanResourceData.Salary
+                ));
     }
 }

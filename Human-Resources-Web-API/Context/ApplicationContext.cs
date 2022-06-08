@@ -23,6 +23,7 @@ namespace Human_Resources_Web_API.Context
                 .WithOne(i => i.Employee)
                 .HasForeignKey<HumanResourceData>(b => b.EmployeeId)
                 .OnDelete(DeleteBehavior.Cascade);
+            
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

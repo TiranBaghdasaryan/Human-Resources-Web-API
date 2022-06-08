@@ -1,3 +1,4 @@
+using System.Text.Json.Serialization;
 using Human_Resources_Web_API.Context;
 using Human_Resources_Web_API.Services;
 using Microsoft.AspNetCore.Builder;
@@ -23,12 +24,16 @@ namespace Human_Resources_Web_API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            
+                // .AddJsonOptions(x =>
+                // x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve);
 
             services.AddDbContext<ApplicationContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddTransient<IEmployeeRepository, EmployeeRepository>();
 
+            
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo {Title = "Human_Resources_Web_API", Version = "v1"});
