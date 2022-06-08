@@ -53,6 +53,15 @@ namespace Human_Resources_Web_API.Controllers
             return Ok(employees);
         }
 
+        [HttpGet("get-email/{id:int}")]
+        public IActionResult GetEmployees(int id)
+        {
+            string result = _employeeRepository.GetEmailById(id);
+            if (Equals(result, null))
+                return BadRequest("Employee not exists");
+            return Ok(result);
+        }
+
         [HttpDelete("remove-employee-hard/{id:int}")]
         public IActionResult RemoveEmployeeHard(int id)
         {
@@ -60,6 +69,17 @@ namespace Human_Resources_Web_API.Controllers
             if (employee == null) return BadRequest("Employee not exists");
 
             response = _employeeRepository.RemoveEmployeeHardByIdAsync(id, employee);
+            return Ok(response);
+        }
+
+
+        [HttpDelete("remove-employee-soft/{id:int}")]
+        public async Task<IActionResult> RemoveEmployeeSoft(int id)
+        {
+            Employee employee = _context.Employees.Include(e => e.HumanResourceData).FirstOrDefault(e => e.Id == id);
+            if (employee == null) return BadRequest("Employee not exists");
+
+            response = await _employeeRepository.RemoveEmployeeSoftByIdAsync(id, employee);
             return Ok(response);
         }
     }

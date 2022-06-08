@@ -10,10 +10,11 @@ namespace Human_Resources_Web_API.Services
     {
         public Task<Response> AddEmployeeAsync(EmployeeRequest requestModel);
         public Response RemoveEmployeeHardByIdAsync(int id,Employee employee);
-        public Task<Response> RemoveEmployeeSoftByIdAsync(int id);
+        public Task<Response> RemoveEmployeeSoftByIdAsync(int id,Employee employee);
         public Task<Response> UpdateEmployeeByIdAsync(int id,EmployeeRequest requestModel,Employee employee);
         public IEnumerable<EmployeeViewModel> GetAllEmployees();
         public IEnumerable<string> GetEmails();
+        public string GetEmailById(int id);
         
     }
 }

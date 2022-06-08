@@ -4,7 +4,7 @@ using Human_Resources_Web_API.Enums;
 
 namespace Human_Resources_Web_API.Entities
 {
-    public class Employee
+    public class EmployeeLeft
     {
         public int Id { get; set; }
         public string FirstName { get; set; }
@@ -13,31 +13,37 @@ namespace Human_Resources_Web_API.Entities
         public Gender Gender { get; set; }
         public string ContactNumber { get; set; }
         public string Email { get; set; }
-        public HumanResourceData HumanResourceData { get; set; }
 
-        public void UpdateEmployee
+        public string PayrollInformation { get; set; }
+        public string SocialSecurityNumber { get; set; }
+        public float Salary { get; set; }
+
+        [DataType(DataType.Date)] public DateTime DateLeft { get; set; }
+
+
+        public EmployeeLeft
         (
             string firstName,
             string lastName,
             DateTime birthDate,
             Gender gender,
             string contactNumber,
-            string email
+            string email,
+            string payrollInformation,
+            string socialSecurityNumber,
+            float salary
         )
         {
             FirstName = firstName;
             LastName = lastName;
             BirthDate = birthDate;
+            Gender = gender;
             ContactNumber = contactNumber;
             Email = email;
-        }
-
-
-        public void UpdateHumanResourceData(string payrollInformation, string socialSecurityNumber, float salary)
-        {
-            HumanResourceData.PayrollInformation = payrollInformation;
-            HumanResourceData.SocialSecurityNumber = socialSecurityNumber;
-            HumanResourceData.Salary = salary;
+            PayrollInformation = payrollInformation;
+            SocialSecurityNumber = socialSecurityNumber;
+            Salary = salary;
+            DateLeft = DateTime.Now.Date;
         }
     }
 }

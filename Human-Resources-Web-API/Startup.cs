@@ -23,17 +23,18 @@ namespace Human_Resources_Web_API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            
-                // .AddJsonOptions(x =>
-                // x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve);
+
+            // .AddJsonOptions(x =>
+            // x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve);
 
             services.AddDbContext<ApplicationContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddTransient<IEmployeeRepository, EmployeeRepository>();
+            services.AddTransient<IEmployeeLeftRepository, EmployeeLeftRepository>();
             services.AddTransient<ISendMailService, SendMailService>();
 
-            
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo {Title = "Human_Resources_Web_API", Version = "v1"});
