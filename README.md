@@ -16,6 +16,12 @@
 - **JWT Authentication**
 - **Send Grid**
 
+## Login API
+
+- Login - "root"
+- Password - "root"
+
+Get the **token** and use it in **Swagger**
 
 
 
