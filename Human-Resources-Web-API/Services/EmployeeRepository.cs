@@ -1,8 +1,8 @@
-﻿using System.Threading.Tasks;
+﻿using System.Linq;
+using System.Threading.Tasks;
 using Human_Resources_Web_API.Context;
 using Human_Resources_Web_API.Entities;
 using Human_Resources_Web_API.Models;
-using Microsoft.AspNetCore.Mvc;
 
 
 namespace Human_Resources_Web_API.Services
@@ -16,10 +16,8 @@ namespace Human_Resources_Web_API.Services
 
         private readonly ApplicationContext _context;
 
-        public async Task<Response> AddEmployeeAsync( AddEmployeeRequest requestModel)
+        public async Task<Response> AddEmployeeAsync(EmployeeRequest requestModel)
         {
-           
-
             Employee employee = new Employee()
             {
                 FirstName = requestModel.FirstName,
@@ -61,7 +59,36 @@ namespace Human_Resources_Web_API.Services
             throw new System.NotImplementedException();
         }
 
-        public Task<Response> UpdateEmployeeByIdAsync(int id)
+        public async Task<Response> UpdateEmployeeByIdAsync(int id, EmployeeRequest requestModel, Employee employee)
+        {
+            employee.UpdateEmployee
+            (
+                requestModel.FirstName,
+                requestModel.LastName,
+                requestModel.BirthDate,
+                requestModel.Gender,
+                requestModel.ContactNumber,
+                requestModel.Email
+            );
+
+
+            employee.UpdateHumanResourceData
+            (
+                requestModel.PayrollInformation,
+                requestModel.SocialSecurityNumber,
+                requestModel.Salary
+            );
+
+            await _context.SaveChangesAsync();
+
+            return new Response()
+            {
+                Message = "Operation done successful",
+                Code = 200
+            };
+        }
+
+        public Task<Response> GetAllEmployeesAsync()
         {
             throw new System.NotImplementedException();
         }
