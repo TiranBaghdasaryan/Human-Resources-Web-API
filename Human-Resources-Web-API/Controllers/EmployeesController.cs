@@ -6,11 +6,13 @@ using Human_Resources_Web_API.Entities;
 using Human_Resources_Web_API.Models;
 using Human_Resources_Web_API.Models.ViewModels;
 using Human_Resources_Web_API.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace Human_Resources_Web_API.Controllers
 {
+    [Authorize(Roles = "Admin")]
     [Route("api/[controller]")]
     [ApiController]
     public class EmployeesController : ControllerBase

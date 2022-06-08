@@ -5,6 +5,6 @@ namespace Human_Resources_Web_API.Services
 {
     public interface ISendMailService
     {
-        Task SendEmailAsync(Mail model);
+        Task<Response> SendEmailAsync(Mail model);
     }
 }

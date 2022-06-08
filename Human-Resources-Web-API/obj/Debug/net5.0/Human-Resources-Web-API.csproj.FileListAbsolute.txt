@@ -58,3 +58,5 @@ C:\Users\Acer\RiderProjects\Human-Resources-Web-API\Human-Resources-Web-API\obj\
 C:\Users\Acer\RiderProjects\Human-Resources-Web-API\Human-Resources-Web-API\obj\Debug\net5.0\Human-Resources-Web-API.genruntimeconfig.cache
 C:\Users\Acer\RiderProjects\Human-Resources-Web-API\Human-Resources-Web-API\bin\Debug\net5.0\SendGrid.dll
 C:\Users\Acer\RiderProjects\Human-Resources-Web-API\Human-Resources-Web-API\bin\Debug\net5.0\StarkbankEcdsa.dll
+C:\Users\Acer\RiderProjects\Human-Resources-Web-API\Human-Resources-Web-API\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\Acer\RiderProjects\Human-Resources-Web-API\Human-Resources-Web-API\bin\Debug\net5.0\Microsoft.IdentityModel.Abstractions.dll
