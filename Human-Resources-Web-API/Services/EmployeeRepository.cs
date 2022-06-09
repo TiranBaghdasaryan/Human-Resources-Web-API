@@ -94,24 +94,24 @@ namespace Human_Resources_Web_API.Services
 
         public async Task<Response> UpdateEmployeeByIdAsync(int id, EmployeeRequest requestModel, Employee employee)
         {
-            // employee.UpdateEmployee
-            // (
-            //     requestModel.FirstName,
-            //     requestModel.LastName,
-            //     requestModel.BirthDate,
-            //     requestModel.Gender,
-            //     requestModel.ContactNumber,
-            //     requestModel.Email
-            // );
-            //
-            // employee.UpdateHumanResourceData
-            // (
-            //     requestModel.PayrollInformation,
-            //     requestModel.SocialSecurityNumber,
-            //     requestModel.Salary
-            // );
+            employee.UpdateEmployee
+            (
+                requestModel.FirstName,
+                requestModel.LastName,
+                requestModel.BirthDate,
+                requestModel.Gender,
+                requestModel.ContactNumber,
+                requestModel.Email
+            );
+            
+            employee.UpdateHumanResourceData
+            (
+                requestModel.PayrollInformation,
+                requestModel.SocialSecurityNumber,
+                requestModel.Salary
+            );
 
-           // employee = _mapper.Map<Employee>(requestModel);
+          //  employee = _mapper.Map<Employee>(requestModel);
 
             await _context.SaveChangesAsync();
 

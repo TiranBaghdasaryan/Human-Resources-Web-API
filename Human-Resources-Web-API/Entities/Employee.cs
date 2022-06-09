@@ -31,8 +31,8 @@ namespace Human_Resources_Web_API.Entities
             ContactNumber = contactNumber;
             Email = email;
         }
-
-
+        
+        
         public void UpdateHumanResourceData(string payrollInformation, string socialSecurityNumber, float salary)
         {
             HumanResourceData.PayrollInformation = payrollInformation;
