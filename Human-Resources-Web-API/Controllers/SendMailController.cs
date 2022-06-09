@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Human_Resources_Web_API.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "Admin")]
     [Route("api/[controller]")]
     [ApiController]
     public class SendMailController : ControllerBase

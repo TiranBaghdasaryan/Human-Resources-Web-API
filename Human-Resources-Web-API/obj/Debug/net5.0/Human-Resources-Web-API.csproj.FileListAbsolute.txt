@@ -60,3 +60,9 @@ C:\Users\Acer\RiderProjects\Human-Resources-Web-API\Human-Resources-Web-API\bin\
 C:\Users\Acer\RiderProjects\Human-Resources-Web-API\Human-Resources-Web-API\bin\Debug\net5.0\StarkbankEcdsa.dll
 C:\Users\Acer\RiderProjects\Human-Resources-Web-API\Human-Resources-Web-API\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 C:\Users\Acer\RiderProjects\Human-Resources-Web-API\Human-Resources-Web-API\bin\Debug\net5.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\Acer\RiderProjects\Human-Resources-Web-API\Human-Resources-Web-API\bin\Debug\net5.0\AutoMapper.dll
+C:\Users\Acer\RiderProjects\Human-Resources-Web-API\Human-Resources-Web-API\bin\Debug\net5.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\Acer\RiderProjects\Human-Resources-Web-API\Human-Resources-Web-API\bin\Debug\net5.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\Acer\RiderProjects\Human-Resources-Web-API\Human-Resources-Web-API\bin\Debug\net5.0\Microsoft.Extensions.Options.dll
+C:\Users\Acer\RiderProjects\Human-Resources-Web-API\Human-Resources-Web-API\bin\Debug\net5.0\Microsoft.Extensions.Primitives.dll
+C:\Users\Acer\RiderProjects\Human-Resources-Web-API\Human-Resources-Web-API\bin\Debug\net5.0\System.Runtime.CompilerServices.Unsafe.dll

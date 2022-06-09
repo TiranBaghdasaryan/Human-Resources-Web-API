@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using Human_Resources_Web_API.Context;
 using Human_Resources_Web_API.Entities;
 using Human_Resources_Web_API.Models;
@@ -12,12 +13,14 @@ namespace Human_Resources_Web_API.Services
 {
     public class EmployeeRepository : IEmployeeRepository
     {
-        public EmployeeRepository(ApplicationContext context)
+        public EmployeeRepository(ApplicationContext context, IMapper mapper)
         {
             _context = context;
+            _mapper = mapper;
         }
 
         private readonly ApplicationContext _context;
+        private readonly IMapper _mapper;
 
         public async Task<Response> AddEmployeeAsync(EmployeeRequest requestModel)
         {
@@ -91,22 +94,24 @@ namespace Human_Resources_Web_API.Services
 
         public async Task<Response> UpdateEmployeeByIdAsync(int id, EmployeeRequest requestModel, Employee employee)
         {
-            employee.UpdateEmployee
-            (
-                requestModel.FirstName,
-                requestModel.LastName,
-                requestModel.BirthDate,
-                requestModel.Gender,
-                requestModel.ContactNumber,
-                requestModel.Email
-            );
+            // employee.UpdateEmployee
+            // (
+            //     requestModel.FirstName,
+            //     requestModel.LastName,
+            //     requestModel.BirthDate,
+            //     requestModel.Gender,
+            //     requestModel.ContactNumber,
+            //     requestModel.Email
+            // );
+            //
+            // employee.UpdateHumanResourceData
+            // (
+            //     requestModel.PayrollInformation,
+            //     requestModel.SocialSecurityNumber,
+            //     requestModel.Salary
+            // );
 
-            employee.UpdateHumanResourceData
-            (
-                requestModel.PayrollInformation,
-                requestModel.SocialSecurityNumber,
-                requestModel.Salary
-            );
+           // employee = _mapper.Map<Employee>(requestModel);
 
             await _context.SaveChangesAsync();
 
@@ -118,29 +123,14 @@ namespace Human_Resources_Web_API.Services
         }
 
         public IEnumerable<EmployeeViewModel> GetAllEmployees() =>
-            _context.Employees.Include(e => e.HumanResourceData).Select(e => new EmployeeViewModel()
-                .Update
-                (
-                    e.FirstName,
-                    e.LastName,
-                    e.BirthDate,
-                    e.Gender,
-                    e.ContactNumber,
-                    e.Email,
-                    e.HumanResourceData.PayrollInformation,
-                    e.HumanResourceData.SocialSecurityNumber,
-                    e.HumanResourceData.Salary
-                ));
+            _context.Employees.Include(e => e.HumanResourceData).Select(e =>
+                _mapper.Map<EmployeeViewModel>(e)
+            );
 
-        public IEnumerable<string> GetEmails()
-        {
-            return _context.Employees.Select(e => e.Email);
-        }
+        public IEnumerable<string> GetEmails() => _context.Employees.Select(e => e.Email);
 
-        public string GetEmailById(int id)
-        {
-            string email = _context.Employees.FirstOrDefault(e => e.Id == id)?.Email;
-            return email;
-        }
+
+        public string GetEmailById(int id) =>
+            _context.Employees.FirstOrDefault(e => e.Id == id)?.Email;
     }
 }

@@ -34,6 +34,8 @@ namespace Human_Resources_Web_API
             services.AddDbContext<ApplicationContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
+            services.AddAutoMapper(typeof(Startup));
+            
             services.AddTransient<IEmployeeRepository, EmployeeRepository>();
             services.AddTransient<IEmployeeLeftRepository, EmployeeLeftRepository>();
             services.AddTransient<ISendMailService, SendMailService>();
