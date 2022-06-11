@@ -15,9 +15,8 @@ namespace Human_Resources_Web_API.Controllers
         {
             _sendMailService = sendMailService;
         }
-
+        
         private readonly ISendMailService _sendMailService;
-
 
         [HttpPost("send-mail")]
         public async Task<IActionResult> SendMail([FromBody] Mail mailModel)

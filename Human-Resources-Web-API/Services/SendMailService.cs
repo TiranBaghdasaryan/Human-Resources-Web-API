@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
 using Human_Resources_Web_API.Models;
 using Microsoft.Extensions.Configuration;
@@ -21,7 +22,7 @@ namespace Human_Resources_Web_API.Services
 
         public async Task<Response> SendEmailAsync(Mail model)
         {
-
+    
             Response res = new Response()
             {
                 Message = "",

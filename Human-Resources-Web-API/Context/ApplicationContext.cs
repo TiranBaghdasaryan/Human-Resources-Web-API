@@ -18,7 +18,7 @@ namespace Human_Resources_Web_API.Context
         public DbSet<HumanResourceData> HumanResourcesData { get; set; }
         public DbSet<EmployeeLeft> EmployeesLeft { get; set; }
 
-
+        
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Employee>()
@@ -27,6 +27,7 @@ namespace Human_Resources_Web_API.Context
                 .HasForeignKey<HumanResourceData>(b => b.EmployeeId)
                 .OnDelete(DeleteBehavior.Cascade);
         }
+        
         
         
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

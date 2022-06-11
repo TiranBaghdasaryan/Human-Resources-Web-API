@@ -15,29 +15,5 @@ namespace Human_Resources_Web_API.Entities
         public string Email { get; set; }
         public HumanResourceData HumanResourceData { get; set; }
 
-        public void UpdateEmployee
-        (
-            string firstName,
-            string lastName,
-            DateTime birthDate,
-            Gender gender,
-            string contactNumber,
-            string email
-        )
-        {
-            FirstName = firstName;
-            LastName = lastName;
-            BirthDate = birthDate;
-            ContactNumber = contactNumber;
-            Email = email;
-        }
-        
-        
-        public void UpdateHumanResourceData(string payrollInformation, string socialSecurityNumber, float salary)
-        {
-            HumanResourceData.PayrollInformation = payrollInformation;
-            HumanResourceData.SocialSecurityNumber = socialSecurityNumber;
-            HumanResourceData.Salary = salary;
-        }
     }
 }

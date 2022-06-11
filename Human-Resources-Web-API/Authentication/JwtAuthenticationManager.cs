@@ -12,7 +12,6 @@ namespace Human_Resources_Web_API.Authentication
     {
         public JwtAuthResponse Authenticate(string userName, string password)
         {
-            
             if(userName != "root" || password != "root")
                 return null;
 

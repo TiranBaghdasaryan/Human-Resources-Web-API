@@ -13,7 +13,6 @@ namespace Human_Resources_Web_API.Entities
         public Gender Gender { get; set; }
         public string ContactNumber { get; set; }
         public string Email { get; set; }
-
         public string PayrollInformation { get; set; }
         public string SocialSecurityNumber { get; set; }
         public float Salary { get; set; }
